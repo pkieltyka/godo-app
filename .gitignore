@@ -1,0 +1,4 @@
+.DS_Store
+cmd/**/tmp/
+bin/
+godo.conf

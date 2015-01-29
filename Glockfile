@@ -1,0 +1,8 @@
+github.com/BurntSushi/toml 3883ac1ce943878302255f538fce319d23226223
+github.com/dgrijalva/jwt-go 47b263f020574c14765ecc3ea88f0e9447046632
+github.com/pkieltyka/jwtauth c7182a9848245add21811ab5196bee038612f5aa
+github.com/pressly/cji 171676bb60b16d891d789564c0b01d99e7fbf905
+github.com/unrolled/render bdfac4a8df10cc9dc03ee14ba2f655137fd70378
+github.com/zenazn/goji 33ec673ad9018725008730b291c2f156bf3a6bf5
+gopkg.in/mgo.v2 445c05a1261a0941bc48d898c8eb3ee18ab398c3
+upper.io/db 712b86dd296096a16c08970c1345b2acbf2a6d4e

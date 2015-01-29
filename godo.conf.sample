@@ -1,0 +1,12 @@
+bind              = "0.0.0.0:3333"
+max_procs         = 1
+
+[db]
+database          = "gododb"
+hosts             = [ "localhost:27017" ]
+
+[jwt]
+secret            = "secret"
+
+[webapp]
+path              = "/Users/peter/Dev/go/src/github.com/pkieltyka/godo-app/webapp"
