@@ -1,52 +1,66 @@
 Godo app Server - Example Go REST API
 =====================================
 
-# Curl commands
+# Usage
 
-## Sign up a new user
+1. Make sure you have Go (1.3+) installed and $GOPATH setup
+2. Install dependencies: `$ make tools && make deps`
+3. Copy/edit sample config file from godo.conf.sample to godo.conf
+4. Ensure Mongodb is running in the background
+5. Compile the Godo API Server: `$ make build`
+6. Boot it up! `$ ./bin/godo-app-server -config=godo.conf`
+7. Create yourself a new user by POSTing a form to /signup:
+    * `$ curl -d 'username=peter&password=shhhh' http://localhost:3333/signup`
+8. Login:
+    * Open your browser to `http://localhost:3333/login?username=peter&password=shhhh`
+9. Use the app!
+    * Point browser to: `http://localhost:3333/`
+
+## Curl commands
+
+### Sign up a new user
 
 ```
 curl -d 'username=peter&password=shhhh' http://localhost:3333/signup
 ```
 
-## Login
+### Login
 
 ```
 curl -d 'username=peter&password=shhhh' http://localhost:3333/login
 ```
 
-## Get Todos list
+### Get Todos list
 
 ```
 curl -H "Authorization: BEARER jwt-token-here" http://localhost:3333/todos
 ```
 
-## Create a new Todo
+### Create a new Todo
 
 ```
 curl -H "Authorization: BEARER jwt-token-here" -d '{"title":"clean my dishes"}' http://localhost:3333/todos
 ```
 
-## Fetch a Todo
+### Fetch a Todo
 
 ```
-curl .........
+curl -H "Authorization: BEARER jwt-token-here" http://localhost:3333/todos/:id
 ```
 
-## Update a Todo
+### Update a Todo
 
 ```
-curl -H "Authorization: BEARER jwt-token-here" -X "PUT" -d '{"user_id":"abc", "title":"mmmmhmmm"}' http://localhost:3333/todos/:id
+curl -H "Authorization: BEARER jwt-token-here" -X "PUT" -d '{"title":"mmmmhmmm"}' http://localhost:3333/todos/:id
 ```
 
-## Deleting a Todo
+### Deleting a Todo
 
 ```
-...
--X "DELETE" http://localhost:3333/todos/:id
+curl -H "Authorization: BEARER jwt-token-here" -X "DELETE" http://localhost:3333/todos/:id
 ```
 
-## Benchmarks with wrk
+### Benchmarks with wrk
 
 ```
 wrk -c 50 -t 5 -H "Authorization: BEARER jwt-token-here" http://localhost:3333/todos
